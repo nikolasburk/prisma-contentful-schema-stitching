@@ -7,21 +7,26 @@ const resolvers = {
     user: (root, args, context, info) =>
       context.db.query.user({ where: { id: args.id } }, info),
     article: async (root, args, context, info) => {
-      const article = await context.cf.query.article(
+      return context.cf.query.article(
         { id: args.id },
         `{sys{id}fields{title text prismaAuthorId}}`,
       )
-      console.log(`Received article: ${JSON.stringify(article)}`)
-      return article
     },
   },
   Mutation: {
-    createUser: (root, args, context, info) =>
-      context.db.mutation.createUser({ data: { name: args.name } }, info),
+    createUser: (root, args, context, info) => {
+      return context.db.mutation.createUser({ data: { name: args.name } }, info)
+    },
     createArticleForUser: async (root, args, context, info) => {
-      const userExists = await context.db.exists.User({ id: args.prismaAuthorId })
+      const userExists = await context.db.exists.User({
+        id: args.prismaAuthorId,
+      })
       if (userExists) {
-        return context.cf.createArticle(args.title, args.text, args.prismaAuthorId)
+        return context.cf.createArticle(
+          args.title,
+          args.text,
+          args.prismaAuthorId,
+        )
       }
       throw new Error(`No Prisma user found for id: ${args.prismaAuthorId}`)
     },
@@ -30,8 +35,11 @@ const resolvers = {
     sysId: root => root.sys.id,
     title: root => root.fields.title,
     text: root => root.fields.text,
-    prismaAuthor: (root, args, context, info) =>
-      context.db.query.user({ where: { id: root.fields.prismaAuthorId } }),
+    prismaAuthor: (root, args, context, info) => {
+      return context.db.query.user({
+        where: { id: root.fields.prismaAuthorId },
+      })
+    },
   },
 }
 
