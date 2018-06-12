@@ -2,6 +2,8 @@
 
 This repository contains a GraphQL API that is composed of two GraphQL APIs (from Prisma & Contentful) using schema stitching (via GraphQL bindings).
 
+![](https://imgur.com/2Fu6cV9.png)
+
 ## Usage
 
 ### 1. Clone the repo & install dependencies
