@@ -7,11 +7,11 @@ const contentful = require('contentful-management')
 const fs = require('fs')
 
 const DELIVERY_API_BASE_URL = 'https://cdn.contentful.com'
-const SPACE_ID = '9t7hdjj3yor9'
+const SPACE_ID = '__CONTENTFUL_SPACE_ID__'
 const ACCESS_TOKEN =
-  '9a6ce8c14abf5777c01e7c39a67d9bea3b491af2eb8647ca08c9ec26ba8a23b1'
+  '__CONTENTFUL_ACCESS_TOKEN__'
 const LOCALE_CODE = 'en-US'
-const CMA_TOKEN = `CFPAT-XXX` // replace this with your own CFPAT
+const CMA_TOKEN = `__CONTENTFUL_CONTENT_MANAGEMENT_TOKEN__` // replace this with your own CFPAT
 
 class ContentfulBinding extends Binding {
   constructor() {
