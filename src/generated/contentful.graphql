@@ -1,0 +1,29 @@
+# source: https://cdn.contentful.com/spaces/9t7hdjj3yor9/graphql/alpha?locale=en-US
+# timestamp: Tue Jun 12 2018 11:08:32 GMT+0200 (CEST)
+
+type Article {
+  sys: Sys
+  fields: ArticleFields
+}
+
+type ArticleCollection {
+  total: Int!
+  skip: Int!
+  limit: Int!
+  items: [Article]!
+}
+
+type ArticleFields {
+  title: String
+  text: String
+  prismaAuthorId: String
+}
+
+type Query {
+  article(id: String!): Article
+  articleCollection(skip: Int = 0, limit: Int = 100): ArticleCollection
+}
+
+type Sys {
+  id: String
+}

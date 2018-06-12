@@ -1,0 +1,18 @@
+projects:
+  app:
+    schemaPath: src/schema.graphql
+    extensions:
+      endpoints:
+        default: http://localhost:4000
+  cf:
+    schemaPath: src/generated/contentful.graphql
+    extensions:
+      endpoints:
+        default:
+          url: https://cdn.contentful.com/spaces/9t7hdjj3yor9/graphql/alpha?locale=en-US
+          headers:
+            Authorization: Bearer 9a6ce8c14abf5777c01e7c39a67d9bea3b491af2eb8647ca08c9ec26ba8a23b1
+  prisma:
+    schemaPath: src/generated/prisma.graphql
+    extensions:
+      prisma: prisma/prisma.yml

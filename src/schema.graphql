@@ -1,0 +1,18 @@
+# import User from "./generated/prisma.graphql"
+
+type Article {
+  sysId: ID
+  title: String
+  text: String
+  prismaAuthor: User
+}
+
+type Query {
+  userFromPrisma(id: ID!): User
+  articleFromContentful(id: ID!): Article
+}
+
+type Mutation {
+  createUser(name: String!): User
+  createArticleForUser(title: String!, text: String!, prismaAuthorId: ID!): Article
+}
