@@ -4,7 +4,6 @@ const { HttpLink } = require('apollo-link-http')
 const { makeRemoteExecutableSchema } = require('graphql-tools')
 const typeDefs = require('./generated/contentful.js')
 const contentful = require('contentful-management')
-const fs = require('fs')
 
 const DELIVERY_API_BASE_URL = 'https://cdn.contentful.com'
 const SPACE_ID = '__CONTENTFUL_SPACE_ID__'

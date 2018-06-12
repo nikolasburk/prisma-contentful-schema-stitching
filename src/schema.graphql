@@ -8,11 +8,11 @@ type Article {
 }
 
 type Query {
-  userFromPrisma(id: ID!): User
-  articleFromContentful(id: ID!): Article
+  user(id: ID!): User # Prisma
+  article(id: ID!): Article # Contentful & Prisma
 }
 
 type Mutation {
-  createUser(name: String!): User
-  createArticleForUser(title: String!, text: String!, prismaAuthorId: ID!): Article
+  createUser(name: String!): User # Prisma
+  createArticleForUser(title: String!, text: String!, prismaAuthorId: ID!): Article # Contentful & Prisma
 }

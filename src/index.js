@@ -4,9 +4,9 @@ const { GraphQLServer } = require('graphql-yoga')
 
 const resolvers = {
   Query: {
-    userFromPrisma: (root, args, context, info) =>
+    user: (root, args, context, info) =>
       context.db.query.user({ where: { id: args.id } }, info),
-    articleFromContentful: async (root, args, context, info) => {
+    article: async (root, args, context, info) => {
       const article = await context.cf.query.article(
         { id: args.id },
         `{sys{id}fields{title text prismaAuthorId}}`,
