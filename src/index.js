@@ -21,14 +21,14 @@ const resolvers = {
       const userExists = await context.db.exists.User({
         id: args.prismaAuthorId,
       })
-      if (userExists) {
-        return context.cf.createArticle(
-          args.title,
-          args.text,
-          args.prismaAuthorId,
-        )
+      if (!userExists) {
+        throw new Error(`No Prisma user found for id: ${args.prismaAuthorId}`)
       }
-      throw new Error(`No Prisma user found for id: ${args.prismaAuthorId}`)
+      return context.cf.createArticle(
+        args.title,
+        args.text,
+        args.prismaAuthorId,
+      )
     },
   },
   Article: {
