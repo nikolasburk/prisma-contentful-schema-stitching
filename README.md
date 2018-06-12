@@ -62,3 +62,7 @@ graphql playground
 ```
 
 > **Note**: If you have the server running, you need to execute this command in a new terminal tab/window since the current tab is used by the server process.
+
+![](https://imgur.com/jwWSae5.png)
+
+The playground lets you interact with all three GraphQL APIs that are defined in [`.graphqlconfig.yml`](./.graphqlconfig.yml).
