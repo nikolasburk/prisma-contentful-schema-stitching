@@ -42,7 +42,7 @@ const server = new GraphQLServer({
     ...req,
     db: new Prisma({
       typeDefs: './src/generated/prisma.graphql',
-      endpoint: 'https://eu1.prisma.sh/nikolas-burk/prisma/dev',
+      endpoint: '__PRISMA_ENDPOINT__',
     }),
     cf: new ContentfulBinding(),
   }),
